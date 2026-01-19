@@ -16,7 +16,7 @@ class HomeViewBody extends StatelessWidget {
         const BooksListView(),
         Padding(
           padding: const EdgeInsets.only(left: 16, top: 32),
-          child: Text('Best Seller', style: Styles.titleMedium),
+          child: Text('Best Seller', style: Styles.textStyle18),
         ),
         BestSellerListViewItem(),
       ],
@@ -36,7 +36,7 @@ class BestSellerListViewItem extends StatelessWidget {
         child: Row(
           children: [
             AspectRatio(
-              aspectRatio: 2.7 / 4,
+              aspectRatio: 2.8 / 4,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
