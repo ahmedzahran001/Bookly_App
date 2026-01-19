@@ -30,7 +30,7 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, top: 8),
+      padding: const EdgeInsets.only(left: 16, top: 16),
       child: SizedBox(
         height: 140,
         child: Row(
@@ -46,6 +46,20 @@ class BestSellerListViewItem extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            const SizedBox(width: 16),
+            Column(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: const Text(
+                    'Harry Potter and the Half-Blood Prince',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: Styles.textStyle20,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
