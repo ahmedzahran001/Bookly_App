@@ -9,7 +9,7 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, top: 16),
+      padding: const EdgeInsets.only(left: 16, top: 16, bottom: 16),
       child: SizedBox(
         height: 140,
         child: Row(
@@ -50,7 +50,7 @@ class BestSellerListViewItem extends StatelessWidget {
                   const SizedBox(height: 3),
                   Row(
                     children: [
-                       Text(
+                      Text(
                         '19.99 \$',
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
@@ -69,4 +69,3 @@ class BestSellerListViewItem extends StatelessWidget {
     );
   }
 }
-
