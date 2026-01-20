@@ -9,7 +9,7 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, top: 16, bottom: 16),
+      padding: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
       child: SizedBox(
         height: 140,
         child: Row(
