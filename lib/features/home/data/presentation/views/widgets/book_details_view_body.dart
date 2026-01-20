@@ -1,4 +1,5 @@
 import 'package:bookly/core/styles.dart';
+import 'package:bookly/features/home/data/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/data/presentation/views/widgets/custom_book_details_app_bar.dart';
 import 'package:bookly/features/home/data/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +22,9 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 32),
           Text(
-            'Harry Potter and the Half-Blood Prince',
+            'Harry Potter and the \nHalf-Blood Prince',
             style: Styles.textStyle30.copyWith(
-              height: 1.15,
+              height: 1.2,
               fontWeight: FontWeight.w600,
             ),
             textAlign: TextAlign.center,
@@ -37,6 +38,8 @@ class BookDetailsViewBody extends StatelessWidget {
               fontStyle: FontStyle.italic,
             ),
           ),
+          const SizedBox(height: 6),
+          const BookRating(mainAxisAlignment: MainAxisAlignment.center),
         ],
       ),
     );
