@@ -1,6 +1,7 @@
 import 'package:bookly/constans.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomeAppBar extends StatelessWidget {
   const CustomeAppBar({super.key});
@@ -14,10 +15,12 @@ class CustomeAppBar extends StatelessWidget {
           Image.asset(kLogo, height: 24),
           const Spacer(),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push('/searchView');
+            },
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
-              size: 24,
+              size: 23,
               color: Colors.white,
             ),
           ),
