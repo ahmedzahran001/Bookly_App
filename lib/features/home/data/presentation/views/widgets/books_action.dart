@@ -1,8 +1,8 @@
 import 'package:bookly/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
-class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
+class BooksActionButtons extends StatelessWidget {
+  const BooksActionButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
