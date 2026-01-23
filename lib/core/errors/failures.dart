@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 abstract class Failures {
-  final String? errMessage;
+  final String errMessage;
 
   const Failures(this.errMessage);
 }
