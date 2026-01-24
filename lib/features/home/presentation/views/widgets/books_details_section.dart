@@ -1,11 +1,14 @@
 import 'package:bookly/core/styles.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/books_action_buttons.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  const BookDetailsSection({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +18,12 @@ class BookDetailsSection extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.21),
           child: CustomBookImage(
-            imageUrl:
-                "https://media.harrypotterfanzone.com/deathly-hallows-ukrainian-cover.jpg",
+            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? "",
           ),
         ),
         const SizedBox(height: 32),
         Text(
-          'Harry Potter and the \nHalf-Blood Prince',
+          bookModel.volumeInfo.title!,
           style: Styles.textStyle30.copyWith(
             height: 1.2,
             fontWeight: FontWeight.w600,
@@ -30,7 +32,7 @@ class BookDetailsSection extends StatelessWidget {
         ),
         const SizedBox(height: 6),
         Text(
-          'J.K. Rowling',
+          bookModel.volumeInfo.authors?[0] ?? "Unknown",
           style: Styles.textStyle18.copyWith(
             color: Colors.grey[500],
             // fontWeight: FontWeight.w500,
@@ -38,10 +40,10 @@ class BookDetailsSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 6),
-        const BookRating(
+        BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
-          count: 10,
-          rating: 5,
+          count: bookModel.volumeInfo.pageCount ?? 0,
+          rating: bookModel.volumeInfo.pageCount ?? 0,
         ),
         const SizedBox(height: 16),
         const BooksActionButtons(),
