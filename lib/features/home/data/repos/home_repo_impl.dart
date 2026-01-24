@@ -13,8 +13,38 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failures, List<BookModel>>> fetchNewestBooks() async {
     try {
       var data = await apiService.get(
-        endPoint:
-            'volumes?q=subject:programming&maxResults=40&startIndex=20',
+        endPoint: 'volumes?q=subject:programming&maxResults=40&startIndex=20',
+      );
+      final items = data['items'];
+      if (items == null) {
+        return const Right([]);
+      }
+
+      List<BookModel> books = [];
+      for (var item in items) {
+        books.add(BookModel.fromJson(item));
+        // try {
+        //   books.add(BookModel.fromJson(item));
+        // } catch (e) {
+        //   books.add(BookModel.fromJson(item));
+        // }
+        // for traking exception.....
+      }
+      return Right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failures, List<BookModel>>> fetchHomeBooks() async {
+    try {
+      var data = await apiService.get(
+        endPoint: 'volumes?q=subject:programming',
       );
       final items = data['items'];
       if (items == null) {
@@ -36,10 +66,12 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failures, List<BookModel>>> fetchHomeBooks() async {
+  Future<Either<Failures, List<BookModel>>> fetchSimilarBooks({
+    required String category,
+  }) async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?q=subject:programming',
+        endPoint: 'volumes?q=subject:programming&Sorting=relevance',
       );
       final items = data['items'];
       if (items == null) {

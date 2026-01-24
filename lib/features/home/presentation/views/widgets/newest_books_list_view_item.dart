@@ -24,8 +24,9 @@ class NewestBookListViewItem extends StatelessWidget {
           child: Row(
             children: [
               CustomBookImage(
-                imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
-                // "https://media.harrypotterfanzone.com/deathly-hallows-ukrainian-cover.jpg",
+                imageUrl:
+                    bookModel.volumeInfo.imageLinks?.thumbnail ??
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7tXrGlHXTOohTFIStW0SbGZ_FINaWFC6vOQ&s",
               ),
               const SizedBox(width: 16),
               Expanded(
@@ -46,7 +47,7 @@ class NewestBookListViewItem extends StatelessWidget {
                     ),
                     const SizedBox(height: 3),
                     Text(
-                      bookModel.volumeInfo.authors![0],
+                      bookModel.volumeInfo.authors?[0]?? 'Unknown',
 
                       style: Styles.textStyle14.copyWith(
                         color: Colors.grey[500],
