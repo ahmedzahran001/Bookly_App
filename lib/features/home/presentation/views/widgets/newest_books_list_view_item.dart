@@ -20,7 +20,10 @@ class BookListViewItem extends StatelessWidget {
           height: 140,
           child: Row(
             children: [
-              const CustomBookImage(),
+              const CustomBookImage(
+                imageUrl:
+                    "https://media.harrypotterfanzone.com/deathly-hallows-ukrainian-cover.jpg",
+              ),
               const SizedBox(width: 16),
               Expanded(
                 child: Column(

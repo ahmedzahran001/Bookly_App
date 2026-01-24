@@ -14,7 +14,10 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.21),
-          child: CustomBookImage(),
+          child: CustomBookImage(
+            imageUrl:
+                "https://media.harrypotterfanzone.com/deathly-hallows-ukrainian-cover.jpg",
+          ),
         ),
         const SizedBox(height: 32),
         Text(

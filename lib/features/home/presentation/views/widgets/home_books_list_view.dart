@@ -12,17 +12,26 @@ class HomeBooksListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBooksCubit, HomeBooksState>(
       builder: (context, state) {
-        if (state is HomeBooksSuccess) { 
+        if (state is HomeBooksSuccess) {
+          if (state.books.isEmpty) {
+            return const Center(child: Text('No books found'));
+          }
+
           return Padding(
             padding: const EdgeInsets.only(left: 8),
             child: SizedBox(
               height: MediaQuery.of(context).size.height * 0.3,
               child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
+                itemCount: state.books.length,
                 itemBuilder: (context, index) {
-                  return const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8),
-                    child: CustomBookImage(),
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: CustomBookImage(
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks.thumbnail,
+                    ),
                   );
                 },
               ),
