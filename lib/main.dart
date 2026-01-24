@@ -15,7 +15,7 @@ void main() {
 
 class Bookly extends StatelessWidget {
   const Bookly({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -25,7 +25,8 @@ class Bookly extends StatelessWidget {
               HomeBooksCubit(getIt.get<HomeRepoImpl>())..fetchHomeBooks(),
         ),
         BlocProvider(
-          create: (context) => NewestBooksCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) =>
+              NewestBooksCubit(getIt.get<HomeRepoImpl>())..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(

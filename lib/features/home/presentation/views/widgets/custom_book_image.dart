@@ -11,7 +11,7 @@ class CustomBookImage extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadiusGeometry.circular(16),
       child: AspectRatio(
-        aspectRatio: 2.8 / 4,
+        aspectRatio: 2.75 / 4,
         child: CachedNetworkImage(
           imageUrl: imageUrl,
           fit: BoxFit.fill,
@@ -23,15 +23,3 @@ class CustomBookImage extends StatelessWidget {
     );
   }
 }
-
-
-
-// Container(
-//         decoration: BoxDecoration(
-//           borderRadius: BorderRadius.circular(8),
-//           image: DecorationImage(
-//             fit: BoxFit.fill,
-//             image: NetworkImage(imageUrl),
-//           ),
-//         ),
-//       ),

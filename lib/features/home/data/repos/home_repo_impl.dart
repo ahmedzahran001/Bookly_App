@@ -14,7 +14,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       var data = await apiService.get(
         endPoint:
-            'volumes?filter=free-ebooks&q=subject:programming&orderBy=newest',
+            'volumes?q=subject:programming&maxResults=40&startIndex=20',
       );
       final items = data['items'];
       if (items == null) {
@@ -39,7 +39,7 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failures, List<BookModel>>> fetchHomeBooks() async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?q=subject: programming',
+        endPoint: 'volumes?q=subject:programming',
       );
       final items = data['items'];
       if (items == null) {

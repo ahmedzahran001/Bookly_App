@@ -1,12 +1,15 @@
 import 'package:bookly/constans.dart';
 import 'package:bookly/core/styles.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+class NewestBookListViewItem extends StatelessWidget {
+  const NewestBookListViewItem({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +23,9 @@ class BookListViewItem extends StatelessWidget {
           height: 140,
           child: Row(
             children: [
-              const CustomBookImage(
-                imageUrl:
-                    "https://media.harrypotterfanzone.com/deathly-hallows-ukrainian-cover.jpg",
+              CustomBookImage(
+                imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+                // "https://media.harrypotterfanzone.com/deathly-hallows-ukrainian-cover.jpg",
               ),
               const SizedBox(width: 16),
               Expanded(
@@ -30,9 +33,10 @@ class BookListViewItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
+                      // height: 58,
                       width: MediaQuery.of(context).size.width * 0.6,
                       child: Text(
-                        'Harry Potter and the Half-Blood Prince',
+                        bookModel.volumeInfo.title!,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle20.copyWith(
@@ -42,22 +46,26 @@ class BookListViewItem extends StatelessWidget {
                     ),
                     const SizedBox(height: 3),
                     Text(
-                      'J.K. Rowling',
+                      bookModel.volumeInfo.authors![0],
+
                       style: Styles.textStyle14.copyWith(
                         color: Colors.grey[500],
                       ),
                     ),
-                    const SizedBox(height: 3),
+                    const SizedBox(height: 8),
                     Row(
                       children: [
                         Text(
-                          '19.99 \$',
+                          'Free',
                           style: Styles.textStyle20.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         const SizedBox(width: 64),
-                        const BookRating(),
+                        BookRating(
+                          rating: bookModel.volumeInfo.pageCount ?? 0,
+                          count: bookModel.volumeInfo.pageCount ?? 0,
+                        ),
                       ],
                     ),
                   ],
