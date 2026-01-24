@@ -46,7 +46,7 @@ class BookDetailsSection extends StatelessWidget {
           rating: bookModel.volumeInfo.pageCount ?? 0,
         ),
         const SizedBox(height: 16),
-        const BooksActionButtons(),
+        BooksActionButtons(bookModel: bookModel),
       ],
     );
   }
