@@ -34,7 +34,7 @@ class NewestBookListViewItem extends StatelessWidget {
                   children: [
                     SizedBox(
                       // height: 58,
-                      width: MediaQuery.of(context).size.width * 0.6,
+                      width: MediaQuery.of(context).size.width * 0.64,
                       child: Text(
                         bookModel.volumeInfo.title!,
                         maxLines: 2,
@@ -61,7 +61,7 @@ class NewestBookListViewItem extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(width: 64),
+                        const SizedBox(width: 100),
                         BookRating(
                           rating: bookModel.volumeInfo.pageCount ?? 0,
                           count: bookModel.volumeInfo.pageCount ?? 0,
