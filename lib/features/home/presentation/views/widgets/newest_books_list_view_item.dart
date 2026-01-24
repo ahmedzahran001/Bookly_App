@@ -17,7 +17,7 @@ class NewestBookListViewItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
       child: GestureDetector(
         onTap: () {
-          GoRouter.of(context).push('/bookDetailsView');
+          GoRouter.of(context).push('/bookDetailsView', extra: bookModel);
         },
         child: SizedBox(
           height: 140,
@@ -47,7 +47,7 @@ class NewestBookListViewItem extends StatelessWidget {
                     ),
                     const SizedBox(height: 3),
                     Text(
-                      bookModel.volumeInfo.authors?[0]?? 'Unknown',
+                      bookModel.volumeInfo.authors?[0] ?? 'Unknown',
 
                       style: Styles.textStyle14.copyWith(
                         color: Colors.grey[500],
