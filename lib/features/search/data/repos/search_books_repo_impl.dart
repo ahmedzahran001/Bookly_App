@@ -11,10 +11,14 @@ class SearchBooksRepoImpl extends SearchBooksRepo {
   SearchBooksRepoImpl(this.apiService);
 
   @override
-  Future<Either<Failures, List<BookModel>>> searchBooks() async {
+  Future<Either<Failures, List<BookModel>>> searchBooks({
+    required String bookName,
+  }) async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?q=subject:programming&Sorting=relevance',
+        endPoint: 'volumes?q=subject:programming+$bookName&Sorting=relevance',
+        
+
       );
       final items = data['items'];
       if (items == null) {
