@@ -9,7 +9,7 @@ abstract class SimilarBooksState extends Equatable {
 
 class SimilarBooksInitial extends SimilarBooksState {}
 
-class SimilarBooksLoading extends SimilarBooksState {}
+class SimilarBooksLoadingState extends SimilarBooksState {}
 
 class SimilarBooksSuccess extends SimilarBooksState {
   final List<BookModel> books;

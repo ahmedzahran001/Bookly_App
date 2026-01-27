@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({super.key});
+   CustomSearchTextField({super.key});
+  final TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
+      
       decoration: InputDecoration(
         fillColor: Colors.black,
         filled: true,
