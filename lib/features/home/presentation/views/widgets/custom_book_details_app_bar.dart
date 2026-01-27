@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomBookDetailsAppBar extends StatelessWidget {
@@ -18,11 +19,13 @@ class CustomBookDetailsAppBar extends StatelessWidget {
             icon: const Icon(Icons.close, color: Colors.white, size: 28),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push('/searchView');
+            },
             icon: const Icon(
-              Icons.shopping_cart_outlined,
+              FontAwesomeIcons.magnifyingGlass,
+              size: 23,
               color: Colors.white,
-              size: 28,
             ),
           ),
         ],
