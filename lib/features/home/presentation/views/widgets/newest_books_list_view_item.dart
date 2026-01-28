@@ -14,7 +14,7 @@ class NewestBookListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
+      padding: const EdgeInsets.only(left: 16, top: 8, bottom: 8, right: 16),
       child: GestureDetector(
         onTap: () {
           GoRouter.of(context).push('/bookDetailsView', extra: bookModel);
@@ -58,11 +58,12 @@ class NewestBookListViewItem extends StatelessWidget {
                       children: [
                         Text(
                           'Free',
-                          style: Styles.textStyle20.copyWith(
+                          style: Styles.textStyle18.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(width: 100),
+                        // const SizedBox(width: 80),
+                        const Spacer(),
                         BookRating(
                           rating: bookModel.volumeInfo.pageCount ?? 0,
                           count: bookModel.volumeInfo.pageCount ?? 0,

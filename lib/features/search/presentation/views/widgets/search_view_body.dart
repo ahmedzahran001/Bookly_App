@@ -31,6 +31,7 @@ class SearchViewBody extends StatelessWidget {
           child: Text('Search Result', style: Styles.textStyle18),
         ),
         const SizedBox(height: 8),
+
         Expanded(
           child: BlocBuilder<SearchBooksCubit, SearchBooksState>(
             builder: (context, state) {
@@ -59,6 +60,7 @@ class SearchViewBody extends StatelessWidget {
                         left: 16,
                         top: 8,
                         bottom: 8,
+                        right: 16,
                       ),
                       child: GestureDetector(
                         onTap: () {
@@ -111,11 +113,12 @@ class SearchViewBody extends StatelessWidget {
                                       children: [
                                         Text(
                                           'Free',
-                                          style: Styles.textStyle20.copyWith(
+                                          style: Styles.textStyle18.copyWith(
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        const SizedBox(width: 100),
+                                        // const SizedBox(width: 100),
+                                        const Spacer(),
                                         BookRating(
                                           rating:
                                               bookModel.volumeInfo.pageCount ??

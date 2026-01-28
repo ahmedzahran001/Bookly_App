@@ -43,15 +43,19 @@ class CustomSearchTextField extends StatelessWidget {
         suffixIcon: IconButton(
           onPressed: () {
             final value = controller.text;
-            if (value.isEmpty) {
-              showDialog(
-                context: context,
-                builder: (context) =>
-                    const Center(child: AnimatedNoResultsWidget()),
-              );
-            } else {
+            if (value.isNotEmpty) {
               context.read<SearchBooksCubit>().searchBooks(bookName: value);
             }
+
+            // if (value.isEmpty) {
+            //   showDialog(
+            //     context: context,
+            //     builder: (context) =>
+            //         const Center(child: AnimatedNoResultsWidget()),
+            //   );
+            // } else {
+            //   context.read<SearchBooksCubit>().searchBooks(bookName: value);
+            // }
           },
           icon: Icon(
             FontAwesomeIcons.magnifyingGlass,
