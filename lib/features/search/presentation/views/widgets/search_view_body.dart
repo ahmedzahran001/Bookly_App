@@ -1,6 +1,5 @@
 import 'package:bookly/constans.dart';
 import 'package:bookly/core/styles.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly/features/search/presentation/view_models/search_books_cubit/search_books_cubit.dart';

@@ -45,18 +45,47 @@ class ServerFailure extends Failures {
   }
 
   factory ServerFailure.fromResponse(int statuscode, dynamic response) {
-    if (statuscode == 400 || statuscode == 401 || statuscode == 403) {
-      return ServerFailure(response['error']['message']);
-    } else if (statuscode == 404) {
-      return ServerFailure(
-        'Error 404, Your request not found, Please try later!',
-      );
-    } else if (statuscode == 500) {
-      return ServerFailure(
-        'Error 500, Internal Server error, Please try later!',
-      );
-    } else {
-      return ServerFailure('Opps There was an Error, Please try later!');
+    switch (statuscode) {
+      case 400:
+        return ServerFailure('Bad request, please check your input');
+
+      case 401:
+        return ServerFailure('Unauthorized, please login again');
+
+      case 403:
+        return ServerFailure("You don't have permission to access this");
+
+      case 404:
+        return ServerFailure('Requested resource not found');
+
+      case 408:
+        return ServerFailure('Request timeout, please try again');
+
+      case 409:
+        return ServerFailure('Conflict occurred, please try again');
+
+      case 422:
+        return ServerFailure('Invalid data, please check your input');
+
+      case 429:
+        return ServerFailure(
+          'Too many requests 😅\nPlease wait a minute and try again',
+        );
+
+      case 500:
+        return ServerFailure('Internal server error, please try later');
+
+      case 502:
+        return ServerFailure('Bad gateway, server is unreachable');
+
+      case 503:
+        return ServerFailure('Service unavailable, try again later');
+
+      case 504:
+        return ServerFailure('Server timeout, please try again later');
+
+      default:
+        return ServerFailure('Opps There was an Error, Please try later!');
     }
   }
 }
