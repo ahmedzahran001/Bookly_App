@@ -1,5 +1,5 @@
 import 'package:bookly/core/widgets/custom_error_widget.dart';
-import 'package:bookly/core/widgets/custom_loading_indicator.dart';
+import 'package:bookly/core/widgets/animated_loading_indicator.dart';
 import 'package:bookly/features/home/presentation/view_model/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/newest_books_list_view_item.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ class NewestBooksListView extends StatelessWidget {
           return const SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.only(top: 250),
-              child: CustomLoadingIndicator(),
+              child: AnimatedLoadingIndicator(),
             ),
           );
         }

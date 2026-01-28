@@ -20,3 +20,5 @@ class SearchBooksFailureState extends SearchBooksState {
   final String errMessage;
   const SearchBooksFailureState(this.errMessage);
 }
+
+
