@@ -1,6 +1,7 @@
 import 'package:bookly/constans.dart';
 import 'package:bookly/core/styles.dart';
 import 'package:bookly/core/widgets/animated_loading_indicator.dart';
+import 'package:bookly/core/widgets/animated_no_connection.dart';
 import 'package:bookly/core/widgets/custom_error_widget.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
@@ -142,8 +143,16 @@ class SearchViewBody extends StatelessWidget {
               }
 
               if (state is SearchBooksFailureState) {
-                return Center(
-                  child: CustomErrorWidget(errMessage: state.errMessage),
+                return Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 200),
+                    AnimatedNoConnection(),
+                    SizedBox(height: 16),
+
+                    // CustomErrorWidget(errMessage: state.errMessage),
+                    CustomErrorWidget(errMessage: state.errMessage),
+                  ],
                 );
               }
 

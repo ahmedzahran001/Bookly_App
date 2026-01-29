@@ -1,4 +1,4 @@
-import 'package:bookly/core/widgets/custom_error_widget.dart';
+import 'package:bookly/core/widgets/animated_no_connection.dart';
 import 'package:bookly/core/widgets/animated_loading_indicator.dart';
 import 'package:bookly/features/home/presentation/view_model/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/newest_books_list_view_item.dart';
@@ -21,8 +21,9 @@ class NewestBooksListView extends StatelessWidget {
         } else if (state is NewestBooksFailure) {
           return SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(top: 250),
-              child: CustomErrorWidget(errMessage: state.errMessage),
+              padding: const EdgeInsets.only(top: 130),
+              // child: CustomErrorWidget(errMessage: state.errMessage),
+              child: AnimatedNoConnection(),
             ),
           );
         } else {

@@ -1,7 +1,9 @@
 import 'package:bookly/core/widgets/animated_loading_indicator.dart';
+import 'package:bookly/core/widgets/animated_no_connection.dart';
 import 'package:bookly/features/home/presentation/view_model/home_books_cubit/home_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly/core/widgets/custom_error_widget.dart';
+import 'package:bookly/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -51,7 +53,16 @@ class HomeBooksListView extends StatelessWidget {
             ),
           );
         } else if (state is HomeBooksFailure) {
-          return CustomErrorWidget(errMessage: state.errMessage);
+          // return CustomErrorWidget(errMessage: state.errMessage);
+          return Column(
+            children: [
+              SizedBox(height: 32),
+              AnimatedNoConnection(),
+              SizedBox(height: 16),
+
+              // CustomErrorWidget(errMessage: state.errMessage),
+            ],
+          );
         } else {
           return AnimatedLoadingIndicator();
         }

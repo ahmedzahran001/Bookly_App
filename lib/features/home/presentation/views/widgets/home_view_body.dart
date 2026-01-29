@@ -5,7 +5,13 @@ import 'package:bookly/features/home/presentation/views/widgets/custom_app_bar.d
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({
+    super.key,
+    this.text1 = 'Popular',
+    this.text2 = 'Newest',
+  });
+  final String text1;
+  final String text2;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +25,12 @@ class HomeViewBody extends StatelessWidget {
               const CustomeAppBar(),
               Padding(
                 padding: const EdgeInsets.only(left: 16, bottom: 12),
-                child: Text('Popular', style: Styles.textStyle18),
+                child: Text(text1, style: Styles.textStyle18),
               ),
               const HomeBooksListView(),
               Padding(
                 padding: const EdgeInsets.only(left: 16, top: 16),
-                child: Text('Newest', style: Styles.textStyle18),
+                child: Text(text2, style: Styles.textStyle18),
               ),
             ],
           ),
