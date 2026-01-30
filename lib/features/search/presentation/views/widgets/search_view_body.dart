@@ -144,9 +144,9 @@ class SearchViewBody extends StatelessWidget {
 
               if (state is SearchBooksFailureState) {
                 return Column(
-                  // mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 200),
+                    // SizedBox(height: 200),
                     AnimatedNoConnection(),
                     SizedBox(height: 16),
 

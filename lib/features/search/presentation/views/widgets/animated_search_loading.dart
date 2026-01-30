@@ -24,8 +24,8 @@ class AnimatedSearchLoading extends StatelessWidget {
 LottieBuilder animatedSearchLoading() {
   return Lottie.asset(
     'assets/animations/Sandy Loading.json',
-    width: 250,
-    height: 250,
+    width: 240,
+    height: 240,
     repeat: true,
   );
 }
