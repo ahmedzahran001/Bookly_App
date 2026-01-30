@@ -45,6 +45,9 @@ class HomeRepoImpl extends HomeRepo {
     try {
       var data = await apiService.get(
         endPoint: 'volumes?q=subject:programming',
+        // volumes?q=dart+programming
+        // volumes?q=flutter
+
       );
       final items = data['items'];
       if (items == null) {
@@ -71,7 +74,8 @@ class HomeRepoImpl extends HomeRepo {
   }) async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?q=subject:programming&Sorting=relevance',
+        endPoint: 'volumes?q=flutter',
+        
       );
       final items = data['items'];
       if (items == null) {
